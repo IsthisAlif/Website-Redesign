@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Fonts: Cormorant Garamond + Work Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — SEPA Dental</title>
+  <meta name="description" content="Our story and philosophy: spa-like dental care focused on comfort, clarity, and outcomes." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Doctors-only overrides so faces don't get cut off -->
+  <style>
+    .grid-2 {
+      display: grid;
+      gap: var(--s4);
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width:640px){
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .doctors .card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      height: auto;
+      object-fit: cover;
+      object-position: 50% 18%;
+      border-radius: calc(var(--radius) - 6px);
+      display: block;
+    }
+
+    /* === Scroll-reveal animation utilities === */
+    [data-animate]{
+      --reveal-op: 0;
+      --reveal-x: 0px;
+      --reveal-y: 10px;
+      --reveal-scale: .98;
+      --reveal-rot: 0deg;
+      --reveal-delay: 0ms;
+      --reveal-dur: 600ms;
+      --reveal-ease: cubic-bezier(.22,.75,.24,1);
+
+      opacity: var(--reveal-op);
+      transform:
+        translate3d(var(--reveal-x), var(--reveal-y), 0)
+        scale(var(--reveal-scale))
+        rotate(var(--reveal-rot));
+      will-change: transform, opacity;
+      transition:
+        opacity var(--reveal-dur) var(--reveal-ease) var(--reveal-delay),
+        transform var(--reveal-dur) var(--reveal-ease) var(--reveal-delay);
+    }
+    .in-view[data-animate]{ --reveal-op:1; --reveal-x:0; --reveal-y:0; --reveal-scale:1; --reveal-rot:0; }
+    [data-animate~="fade"] { --reveal-y: 0px; }
+    [data-animate~="up"]   { --reveal-y: 16px; }
+    [data-animate~="down"] { --reveal-y: -16px; }
+    [data-animate~="left"] { --reveal-x: 16px; }
+    [data-animate~="right"]{ --reveal-x: -16px; }
+    [data-animate~="zoom"] { --reveal-scale: .94; }
+    [data-animate~="spin"] { --reveal-rot: -3deg; }
+    [data-stagger] > * { transition-delay: var(--reveal-delay, 0ms); }
+    @media (prefers-reduced-motion: reduce){
+      [data-animate]{ transition: none !important; transform: none !important; opacity: 1 !important; }
+    }
+  </style>
+</head>
+
+<div class="marquee-container">
+  <div class="marquee">
+    <div class="marquee__group">
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+    </div>
+
+    <div class="marquee__group marquee__group--b">
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+    </div>
+  </div>
+</div>
+
+  <header class="site-header fixed-header" data-animate="fade" data-once>
+    <div class="header-container" data-stagger="80">
+      <a class="brand" href="index.html" data-animate="up">
+        <img src="assets/img/main_logo.png" alt="SEPA Dental logo" data-animate="fade">
+      </a>
+
+      <nav id="nav" class="site-nav" aria-label="Primary" data-animate="up">
+        <ul>
+          <li data-animate="up"><a href="index.html">Home</a></li>
+          <li data-animate="up" data-delay="40"><a href="about.html">About</a></li>
+          <li data-animate="up" data-delay="80"><a href="services.html">What We Offer</a></li>
+          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialty</a></li>
+          <li data-animate="up" data-delay="160"><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-animate="zoom" data-delay="240">☰</button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" data-stagger="120" data-once>
+      <div class="container grid">
+        <!-- Left: Video -->
+        <div class="hero-video-wrapper" data-animate="left">
+          <div class="hero-video" data-animate="fade" data-delay="60">
+            <video
+              class="hero-video-player"
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/img/video-poster.jpg">
+              <source src="assets/img/SEPAvideo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div>
+          <h1 data-animate="up">About SEPA Dental</h1>
+          <p class="lead" data-animate="fade" data-delay="80">
+            With a focus on personalized care, we take the time to listen to your concerns, answer your questions, 
+            and create tailored treatment plans that address your unique needs. We combine state-of-the-art 
+            technology with a gentle touch to deliver effective and pain-free dental procedures.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-stagger="120">
+      <div class="container grid">
+        <div>
+          <h2 class="section-heading" data-animate="up">Our Philosophy</h2>
+          <p data-animate="fade" data-delay="60">Great dentistry is both science and care. From your first consult to your follow-up, we explain options in plain language, use modern imaging for accuracy, and prioritise comfort every step of the way.</p>
+          <ul class="bullets">
+            <li data-animate="up">Comfort-first spaces and gentle techniques</li>
+            <li data-animate="up" data-delay="40">Transparent plans with costs and timelines</li>
+            <li data-animate="up" data-delay="80">Preventive care that fits real life</li>
+          </ul>
+        </div>
+        <img src="assets/img/img-about.jpg" alt="Soothing dental treatment room with warm lighting" loading="lazy" data-animate="right">
+      </div>
+    </section>
+
+    <!-- OUR DOCTORS -->
+    <section class="section doctors" aria-labelledby="doctors-heading" data-stagger="120">
+      <div class="container narrow" style="text-align: center;">
+        <h2 id="doctors-heading" class="section-heading" data-animate="up">Our Doctors</h2>
+        <img
+          src="assets/img/img-team.jpg"
+          alt="Group photo of SEPA Dental doctors"
+          style="max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-2); margin-top: var(--s3);"
+          loading="lazy"
+          data-animate="fade" data-delay="80">
+      </div>
+
+      <div class="container">
+        <div class="grid-2" style="margin-top: var(--s4);" data-stagger="120">
+          <article class="card" data-animate="up">
+            <img src="assets/img/team-1.jpg" alt="Dr Allen Teh" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Allen Teh</h3>
+            <p data-animate="fade" data-delay="80">"Through personal experience, empathy and passion, we know what it takes to create a smile that you’ll love through a unique simple, and predictable experience. We empower people to take action towards revealing their best self with their best smile.”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="60">
+            <img src="assets/img/team-2.jpg" alt="Dr Sky Liew" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Sky Liew</h3>
+            <p data-animate="fade" data-delay="80">"Your unique smile, our heartfelt artistry. Embrace the authenticity as we create smiles that reflect your true beauty.”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="120">
+            <img src="assets/img/team-3.jpg" alt="Dr Darren Yap" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Darren Yap</h3>
+            <p data-animate="fade" data-delay="80">"With Precision and Passion, We sculpt and breathe life into your dream smile, turning it into reality, creating a masterpiece that is unique and unforgettable”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="180">
+            <img src="assets/img/team-4.jpg" alt="Dr CK Liew" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr CK Liew</h3>
+            <p data-animate="fade" data-delay="80">"The best feeling is when my patients completed their braces journey and tell me they love their smile”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="240">
+            <img src="assets/img/team-5.jpg" alt="Dr McKenzie Ee" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr McKenzie Ee</h3>
+            <p data-animate="fade" data-delay="80">"Your smile , is worth more than a million dollar”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="300">
+            <img src="assets/img/team-6.jpg" alt="Dr Casey Lee" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Casey Lee</h3>
+            <p data-animate="fade" data-delay="80">"Creating smile might not change the world, but it could change the world for one person”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="360">
+            <img src="assets/img/team-7.jpg" alt="Dr Temmeera Neo" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Temmeera Neo</h3>
+            <p data-animate="fade" data-delay="80">“A beautiful smile, for a beautiful you.”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="420">
+            <img src="assets/img/team-8.jpg" alt="Dr Ng Khai Ling" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Ng Khai Ling</h3>
+            <p data-animate="fade" data-delay="80">“Dentistry is not expensive, neglect is. Don’t forget to get your teeth checked every year!”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="480">
+            <img src="assets/img/team-9.jpg" alt="Dr Hazel Woon" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Hazel Woon</h3>
+            <p data-animate="fade" data-delay="80">“Seeing my patients smile confidently is the greatest satisfaction to me.”</p>
+          </article>
+
+          <article class="card" data-animate="up" data-delay="540">
+            <img src="assets/img/team-10.jpg" alt="Dr Fan Zhi Yin" loading="lazy" data-animate="fade">
+            <h3 data-animate="up" data-delay="40">Dr Fan Zhi Yin</h3>
+            <p data-animate="fade" data-delay="80">“There's nothing more gratifying than witnessing my patients' discomfort disappear after treatment.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- /OUR DOCTORS -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="assets/img/main_logo.png" alt="SEPA Dental logo">
+        <p>Klang Valley • Seremban • Johor Bahru</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h4 class="footer-title">Quicklink</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">What We Offer</a></li>
+          <li><a href="specialty.html">Our Specialty</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <form action="#" method="post" class="cta">
+        <label for="branch">Preferred branch</label>
+        <select id="branch" name="branch" required>
+          <option value="">Select…</option>
+          <option>KL Republica</option>
+          <option>TTDI</option>
+          <option>Bukit Jalil</option>
+          <option>Klang Bukit Raja</option>
+          <option>PJ SS2</option>
+          <option>Subang</option>
+          <option>Puchong</option>
+          <option>Seremban</option>
+          <option>JB Mount Austin</option>
+          <option>JB Sutera Utama</option>
+          <option>JB Eco Botanic</option>
+        </select>
+        <button class="btn" type="submit">Request a slot</button>
+      </form>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- === Scroll-reveal IntersectionObserver === -->
+  <script>
+  (function(){
+    const els = [...document.querySelectorAll('[data-animate], [data-stagger]')];
+    if (!('IntersectionObserver' in window) || !els.length) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const once = el.hasAttribute('data-once') || el.getAttribute('data-animate')?.includes('once');
+
+        if (entry.isIntersecting){
+          const delay = el.getAttribute('data-delay');
+          const dur   = el.getAttribute('data-dur');
+          if (delay) el.style.setProperty('--reveal-delay', parseInt(delay,10) + 'ms');
+          if (dur)   el.style.setProperty('--reveal-dur', parseInt(dur,10) + 'ms');
+
+          const stagger = parseInt(el.getAttribute('data-stagger') || '0', 10);
+          if (stagger && el.children.length){
+            [...el.children].forEach((child, i) => {
+              child.style.setProperty('--reveal-delay', (i * stagger) + 'ms');
+              if (!child.hasAttribute('data-animate')){
+                child.setAttribute('data-animate', 'up');
+              }
+              child.classList.add('in-view');
+            });
+          }
+
+          el.classList.add('in-view');
+          if (once) io.unobserve(el);
+        } else {
+          if (!el.hasAttribute('data-once')){
+            el.classList.remove('in-view');
+            if (el.hasAttribute('data-stagger')){
+              [...el.children].forEach(child => child.classList.remove('in-view'));
+            }
+          }
+        }
+      });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+    els.forEach(el => io.observe(el));
+  })();
+  </script>
+</body>
+</html>

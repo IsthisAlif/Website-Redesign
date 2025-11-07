@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Fonts: Cormorant Garamond + Work Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Specialty — SEPA Dental</title>
+  <meta name="description" content="SEPA Signature Smile, Pain-Free Relief & Healing, RM 99 Scaling, and Dental Veneers — gathered in one simple, elegant page." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- === Scroll-reveal animation utilities (inline; move to styles.css if you like) === -->
+  <style>
+    [data-animate]{
+      --reveal-op: 0;
+      --reveal-x: 0px;
+      --reveal-y: 10px;
+      --reveal-scale: .98;
+      --reveal-rot: 0deg;
+      --reveal-delay: 0ms;
+      --reveal-dur: 600ms;
+      --reveal-ease: cubic-bezier(.22,.75,.24,1);
+
+      opacity: var(--reveal-op);
+      transform:
+        translate3d(var(--reveal-x), var(--reveal-y), 0)
+        scale(var(--reveal-scale))
+        rotate(var(--reveal-rot));
+      will-change: transform, opacity;
+      transition:
+        opacity var(--reveal-dur) var(--reveal-ease) var(--reveal-delay),
+        transform var(--reveal-dur) var(--reveal-ease) var(--reveal-delay);
+    }
+    .in-view[data-animate]{ --reveal-op:1; --reveal-x:0; --reveal-y:0; --reveal-scale:1; --reveal-rot:0; }
+    [data-animate~="fade"] { --reveal-y: 0px; }
+    [data-animate~="up"]   { --reveal-y: 16px; }
+    [data-animate~="down"] { --reveal-y: -16px; }
+    [data-animate~="left"] { --reveal-x: 16px; }
+    [data-animate~="right"]{ --reveal-x: -16px; }
+    [data-animate~="zoom"] { --reveal-scale: .94; }
+    [data-animate~="spin"] { --reveal-rot: -3deg; }
+    [data-stagger] > * { transition-delay: var(--reveal-delay, 0ms); }
+    @media (prefers-reduced-motion: reduce){
+      [data-animate]{ transition: none !important; transform: none !important; opacity: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+<div class="marquee-container">
+  <div class="marquee">
+    <div class="marquee__group">
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+    </div>
+
+    <div class="marquee__group marquee__group--b">
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+      <span>Best Dental in Malaysia •</span>
+    </div>
+  </div>
+</div>
+
+  <header class="site-header fixed-header" data-animate="fade" data-once>
+    <div class="header-container" data-stagger="80">
+      <a class="brand" href="index.html" data-animate="up">
+        <img src="assets/img/main_logo.png" alt="SEPA Dental logo" data-animate="fade">
+      </a>
+
+      <nav id="nav" class="site-nav" aria-label="Primary" data-animate="up">
+        <ul>
+          <li data-animate="up"><a href="index.html">Home</a></li>
+          <li data-animate="up" data-delay="40"><a href="about.html">About</a></li>
+          <li data-animate="up" data-delay="80"><a href="services.html">What We Offer</a></li>
+          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialty</a></li>
+          <li data-animate="up" data-delay="160"><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-animate="zoom" data-delay="240">☰</button>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- Hero -->
+    <section class="hero" data-stagger="120" data-once>
+      <div class="container narrow">
+        <h1 data-animate="up">Our Specialty</h1>
+        <p class="lead" data-animate="fade" data-delay="80">Four focused services that define SEPA Dental — simplified, clear, and comfort-first.</p>
+      </div>
+    </section>
+
+    <!-- Details sections --> 
+    <section class="section" data-stagger="120">
+      <div class="container details">
+        <!-- Signature Smile -->
+        <article class="detail feature" id="signature" aria-labelledby="signature-title" data-stagger="120">
+          <div class="detail-grid">
+            <div class="detail-copy">
+              <h2 id="signature-title" data-animate="up">SEPA Signature Smile</h2>
+              <p data-animate="fade" data-delay="60">A personalised smile plan — usually a gentle combo of whitening, aligners, and veneers — designed around your face, bite, and timeline.</p>
+              <ul class="bullets">
+                <li data-animate="up">Digital planning and previews where suitable</li>
+                <li data-animate="up" data-delay="40">Staged approach to preserve tooth structure</li>
+                <li data-animate="up" data-delay="80">Clear costs and treatment milestones</li>
+              </ul>
+            </div>
+            <figure class="detail-media" data-animate="right" data-delay="100">
+              <img src="assets/img/sepa-smile.png" alt="Signature Smile concept visual" loading="lazy" data-animate="fade">
+            </figure>
+          </div>
+        </article>
+
+        <!-- Pain-Free -->
+        <article class="detail feature reverse" id="pain-free" aria-labelledby="painfree-title" data-stagger="120">
+          <div class="detail-grid">
+            <div class="detail-copy">
+              <h2 id="painfree-title" data-animate="up">Pain-Free Relief &amp; Healing</h2>
+              <p data-animate="fade" data-delay="60">Comfort-first care using local anaesthesia and modern imaging to diagnose quickly and treat efficiently with minimal discomfort.</p>
+              <ul class="bullets">
+                <li data-animate="up">Clear explanations before treatment</li>
+                <li data-animate="up" data-delay="40">3D imaging where indicated for precision</li>
+                <li data-animate="up" data-delay="80">Post-care guidance to speed recovery</li>
+              </ul>
+            </div>
+            <figure class="detail-media" data-animate="left" data-delay="100">
+              <img src="assets/img/tooth-ache.png" alt="Comfort-focused treatment illustration" loading="lazy" data-animate="fade">
+            </figure>
+          </div>
+        </article>
+
+        <!-- RM99 Scaling -->
+        <article class="detail feature" id="rm99" aria-labelledby="rm99-title" data-stagger="120">
+          <div class="detail-grid">
+            <div class="detail-copy">
+              <h2 id="rm99-title" data-animate="up">RM 99 Scaling</h2>
+              <p data-animate="fade" data-delay="60">Routine scaling and polishing at a fixed, affordable rate — a great foundation if you haven’t visited in a while.</p>
+              <ul class="bullets">
+                <li data-animate="up">Gentle ultrasonic cleaning to reduce sensitivity</li>
+                <li data-animate="up" data-delay="40">Helps remove plaque, tartar, and surface stains</li>
+                <li data-animate="up" data-delay="80">Personalised recall intervals</li>
+              </ul>
+            </div>
+            <figure class="detail-media" data-animate="right" data-delay="100">
+              <img src="assets/img/scalling-1.jpg" alt="Scaling and polishing tools" loading="lazy" data-animate="fade">
+            </figure>
+          </div>
+        </article>
+
+        <!-- Dental Veneers -->
+        <article class="detail feature reverse" id="veneers" aria-labelledby="veneers-title" data-stagger="120">
+          <div class="detail-grid">
+            <div class="detail-copy">
+              <h2 id="veneers-title" data-animate="up">Dental Veneers</h2>
+              <p data-animate="fade" data-delay="60">Thin porcelain or composite shells that refine colour and shape for a natural, long-lasting smile.</p>
+              <ul class="bullets">
+                <li data-animate="up">Minimal prep; shade and translucency discussed upfront</li>
+                <li data-animate="up" data-delay="40">Porcelain for longevity; composite for speed/budget</li>
+                <li data-animate="up" data-delay="80">Night guard recommended for grinders</li>
+              </ul>
+            </div>
+            <figure class="detail-media" data-animate="left" data-delay="100">
+              <img src="assets/img/before-1.jpg" alt="Dental veneer smile example" loading="lazy" data-animate="fade">
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" data-stagger="120">
+      <div class="container">
+        <div class="card" data-animate="up">
+          <h2 data-animate="up">Ready to explore your options?</h2>
+          <p data-animate="fade" data-delay="60">Book a consult and we’ll walk through what fits your goals and budget.</p>
+          <a class="btn" href="contact.html" data-animate="zoom" data-delay="120">Book an appointment</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="assets/img/main_logo.png" alt="SEPA Dental logo">
+        <p>Klang Valley • Seremban • Johor Bahru</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h4 class="footer-title">Quicklink</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">What We Offer</a></li>
+          <li><a href="specialty.html">Our Specialty</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <form action="#" method="post" class="cta">
+        <label for="branch">Preferred branch</label>
+        <select id="branch" name="branch" required>
+          <option value="">Select…</option>
+          <option>KL Republica</option>
+          <option>TTDI</option>
+          <option>Bukit Jalil</option>
+          <option>Klang Bukit Raja</option>
+          <option>PJ SS2</option>
+          <option>Subang</option>
+          <option>Puchong</option>
+          <option>Seremban</option>
+          <option>JB Mount Austin</option>
+          <option>JB Sutera Utama</option>
+          <option>JB Eco Botanic</option>
+        </select>
+        <button class="btn" type="submit">Request a slot</button>
+      </form>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- === Scroll-reveal IntersectionObserver (inline; move to main.js if you like) === -->
+  <script>
+  (function(){
+    const els = [...document.querySelectorAll('[data-animate], [data-stagger]')];
+    if (!('IntersectionObserver' in window) || !els.length) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        const once = el.hasAttribute('data-once') || el.getAttribute('data-animate')?.includes('once');
+
+        if (entry.isIntersecting){
+          const delay = el.getAttribute('data-delay');
+          const dur   = el.getAttribute('data-dur');
+          if (delay) el.style.setProperty('--reveal-delay', parseInt(delay,10) + 'ms');
+          if (dur)   el.style.setProperty('--reveal-dur', parseInt(dur,10) + 'ms');
+
+          const stagger = parseInt(el.getAttribute('data-stagger') || '0', 10);
+          if (stagger && el.children.length){
+            [...el.children].forEach((child, i) => {
+              child.style.setProperty('--reveal-delay', (i * stagger) + 'ms');
+              if (!child.hasAttribute('data-animate')){
+                child.setAttribute('data-animate', 'up');
+              }
+              child.classList.add('in-view');
+            });
+          }
+
+          el.classList.add('in-view');
+          if (once) io.unobserve(el);
+        } else {
+          if (!el.hasAttribute('data-once')){
+            el.classList.remove('in-view');
+            if (el.hasAttribute('data-stagger')){
+              [...el.children].forEach(child => child.classList.remove('in-view'));
+            }
+          }
+        }
+      });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+    els.forEach(el => io.observe(el));
+  })();
+  </script>
+</body>
+</html>
