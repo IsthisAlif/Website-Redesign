@@ -307,6 +307,14 @@ main,section:first-of-type{padding-top:100px}
 .btn:hover{filter:brightness(.96);transform:translateY(-1px);text-decoration:none}
 .btn.secondary{background:transparent;color:var(--brand);border:1px solid var(--brand)}
 
+a.btn,
+a.btn:visited,
+a.btn:hover,
+a.btn:focus,
+a.btn:active {
+  text-decoration: none;
+}
+
 /* Footer */
 .site-footer{
   margin-top:var(--s6);padding-block:var(--s5);background:var(--brand);color:#fff;
@@ -382,4 +390,5 @@ main,section:first-of-type{padding-top:100px}
 [data-animate~="spin"]{--reveal-rot:-3deg}
 @media (prefers-reduced-motion:reduce){
   [data-animate]{transition:none;transform:none;opacity:1!important}
+
 }
