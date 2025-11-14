@@ -11,40 +11,6 @@
   <meta name="description" content="SEPA Signature Smile, Pain-Free Relief & Healing, RM 99 Scaling, and Dental Veneers — gathered in one simple, elegant page." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <style>
-    [data-animate]{
-      --reveal-op: 0;
-      --reveal-x: 0px;
-      --reveal-y: 10px;
-      --reveal-scale: .98;
-      --reveal-rot: 0deg;
-      --reveal-delay: 0ms;
-      --reveal-dur: 600ms;
-      --reveal-ease: cubic-bezier(.22,.75,.24,1);
-
-      opacity: var(--reveal-op);
-      transform:
-        translate3d(var(--reveal-x), var(--reveal-y), 0)
-        scale(var(--reveal-scale))
-        rotate(var(--reveal-rot));
-      will-change: transform, opacity;
-      transition:
-        opacity var(--reveal-dur) var(--reveal-ease) var(--reveal-delay),
-        transform var(--reveal-dur) var(--reveal-ease) var(--reveal-delay);
-    }
-    .in-view[data-animate]{ --reveal-op:1; --reveal-x:0; --reveal-y:0; --reveal-scale:1; --reveal-rot:0; }
-    [data-animate~="fade"] { --reveal-y: 0px; }
-    [data-animate~="up"]   { --reveal-y: 16px; }
-    [data-animate~="down"] { --reveal-y: -16px; }
-    [data-animate~="left"] { --reveal-x: 16px; }
-    [data-animate~="right"]{ --reveal-x: -16px; }
-    [data-animate~="zoom"] { --reveal-scale: .94; }
-    [data-animate~="spin"] { --reveal-rot: -3deg; }
-    [data-stagger] > * { transition-delay: var(--reveal-delay, 0ms); }
-    @media (prefers-reduced-motion: reduce){
-      [data-animate]{ transition: none !important; transform: none !important; opacity: 1 !important; }
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -78,14 +44,14 @@
       <nav id="nav" class="site-nav" aria-label="Primary" data-animate="up">
         <ul>
           <li data-animate="up"><a href="index.html">Home</a></li>
-          <li data-animate="up" data-delay="40"><a href="about.html">About</a></li>
+          <li data-animate="up" data-delay="40"><a href="about.html">About Us</a></li>
           <li data-animate="up" data-delay="80"><a href="services.html">What We Offer</a></li>
-          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialty</a></li>
+          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialties</a></li>
           <li data-animate="up" data-delay="160"><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
-      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact</a>
+      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact Us</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-animate="zoom" data-delay="240">☰</button>
     </div>
   </header>
@@ -95,9 +61,37 @@
     <section class="hero" data-stagger="120" data-once>
       <div class="container narrow">
         <h1 data-animate="up">Our Specialty</h1>
-        <p class="lead" data-animate="fade" data-delay="80">Explore our four core specialty services, each designed with clarity, comfort, and personalized care in mind. 
-  Whether you're maintaining your oral health, restoring your smile, or seeking enhanced aesthetics, 
-  our team is here to guide you with gentle expertise and a focus on what matters most — your comfort and confidence.</p>
+        <p class="lead" data-animate="fade" data-delay="80">
+        Explore our four core specialty services, each designed with clarity, comfort, and personalized care in mind. 
+        Whether you're maintaining your oral health, restoring your smile, or seeking enhanced aesthetics, 
+        our team is here to guide you with gentle expertise and a focus on what matters most, your comfort and confidence.</p>
+      </div>
+    </section>
+
+    <!-- Specialty Navigation Cards -->
+    <section class="section specialties-nav" data-stagger="120">
+      <div class="container specialties-grid">
+
+        <a href="#signature" class="specialty-card" data-animate="up">
+          <img src="assets/img/smile.png" alt="">
+          <span>SEPA Signature Smile</span>
+        </a>
+
+        <a href="#pain-free" class="specialty-card" data-animate="up" data-delay="40">
+          <img src="assets/img/pain-free.png" alt="">
+          <span>Pain-Free Relief & Healing</span>
+        </a>
+
+        <a href="#rm99" class="specialty-card" data-animate="up" data-delay="80">
+          <img src="assets/img/scaling.png" alt="">
+          <span>RM 99 Scaling</span>
+        </a>
+
+        <a href="#veneers" class="specialty-card" data-animate="up" data-delay="120">
+          <img src="assets/img/veneer.png" alt="">
+          <span>Dental Veneers</span>
+        </a>
+
       </div>
     </section>
 
@@ -109,7 +103,7 @@
           <div class="detail-grid">
             <div class="detail-copy">
               <h2 id="signature-title" data-animate="up">SEPA Signature Smile</h2>
-              <p data-animate="fade" data-delay="60">A personalised smile plan — usually a gentle combo of whitening, aligners, and veneers — designed around your face, bite, and timeline.</p>
+              <p data-animate="fade" data-delay="60">A personalised smile plan usually a gentle combo of whitening, aligners, and veneers designed around your face, bite, and timeline.</p>
               <ul class="bullets">
                 <li data-animate="up">Digital planning and previews where suitable</li>
                 <li data-animate="up" data-delay="40">Staged approach to preserve tooth structure</li>
@@ -145,7 +139,7 @@
           <div class="detail-grid">
             <div class="detail-copy">
               <h2 id="rm99-title" data-animate="up">RM 99 Scaling</h2>
-              <p data-animate="fade" data-delay="60">Routine scaling and polishing at a fixed, affordable rate — a great foundation if you haven’t visited in a while.</p>
+              <p data-animate="fade" data-delay="60">Routine scaling and polishing at a fixed, affordable rate a great foundation if you haven’t visited in a while.</p>
               <ul class="bullets">
                 <li data-animate="up">Gentle ultrasonic cleaning to reduce sensitivity</li>
                 <li data-animate="up" data-delay="40">Helps remove plaque, tartar, and surface stains</li>
@@ -198,12 +192,14 @@
       </div>
 
       <nav aria-label="Footer">
-        <h4 class="footer-title">Quicklink</h4>
+        <h4 class="footer-title">Quicklinks</h4>
         <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">What We Offer</a></li>
-          <li><a href="specialty.html">Our Specialty</a></li>
+          <li><a href="specialty.html">Our Specialties</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -251,49 +247,5 @@
 
   <script src="assets/js/main.js" defer></script>
 
-  <!-- === Scroll-reveal IntersectionObserver (inline; move to main.js if you like) === -->
-  <script>
-  (function(){
-    const els = [...document.querySelectorAll('[data-animate], [data-stagger]')];
-    if (!('IntersectionObserver' in window) || !els.length) return;
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const el = entry.target;
-        const once = el.hasAttribute('data-once') || el.getAttribute('data-animate')?.includes('once');
-
-        if (entry.isIntersecting){
-          const delay = el.getAttribute('data-delay');
-          const dur   = el.getAttribute('data-dur');
-          if (delay) el.style.setProperty('--reveal-delay', parseInt(delay,10) + 'ms');
-          if (dur)   el.style.setProperty('--reveal-dur', parseInt(dur,10) + 'ms');
-
-          const stagger = parseInt(el.getAttribute('data-stagger') || '0', 10);
-          if (stagger && el.children.length){
-            [...el.children].forEach((child, i) => {
-              child.style.setProperty('--reveal-delay', (i * stagger) + 'ms');
-              if (!child.hasAttribute('data-animate')){
-                child.setAttribute('data-animate', 'up');
-              }
-              child.classList.add('in-view');
-            });
-          }
-
-          el.classList.add('in-view');
-          if (once) io.unobserve(el);
-        } else {
-          if (!el.hasAttribute('data-once')){
-            el.classList.remove('in-view');
-            if (el.hasAttribute('data-stagger')){
-              [...el.children].forEach(child => child.classList.remove('in-view'));
-            }
-          }
-        }
-      });
-    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-
-    els.forEach(el => io.observe(el));
-  })();
-  </script>
 </body>
 </html>

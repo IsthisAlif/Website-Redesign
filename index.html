@@ -48,14 +48,14 @@
       <nav id="nav" class="site-nav" aria-label="Primary">
         <ul>
           <li><a href="index.html" aria-current="page">Home</a></li>
-          <li data-delay="40"><a href="about.html">About</a></li>
+          <li data-delay="40"><a href="about.html">About Us</a></li>
           <li data-delay="80"><a href="services.html">What We Offer</a></li>
-          <li data-delay="120"><a href="specialty.html">Our Specialty</a></li>
+          <li data-delay="120"><a href="specialty.html">Our Specialties</a></li>
           <li data-delay="160"><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
-      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact</a>
+      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact Us</a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation">☰</button>
     </div>
@@ -64,7 +64,7 @@
   <main id="content">
     <!-- Hero -->
     <section class="hero" data-stagger="120" data-once>
-      <video class="hero-bgvideo" autoplay muted loop playsinline preload="auto" poster="assets/img/bg-img.png" aria-hidden="true">
+      <video class="hero-bgvideo" autoplay muted loop playsinline preload="auto">
         <source src="assets/img/background3.mp4" type="video/mp4" />
       </video>
 
@@ -73,11 +73,53 @@
           <h1 data-animate="up">Spa-Like Dental Clinics in Malaysia</h1>
           <p data-animate="fade" data-delay="80" style="color:#e4e9ec;">Exceptional dentists, calming spaces, and technology for comfortable, clear treatment.</p>
           <a class="btn" href="contact.html" data-animate="zoom" data-delay="140">Book an appointment</a>
+
+          <div class="hero-badges" data-animate="fade" data-delay="200">
+            <img src="assets/img/badge1.png" alt="Angel Aligner Diamond Provider 2024">
+            <img src="assets/img/badge2.png" alt="Invisalign Diamond Provider 2025">
+          </div>
+
         </div>
         <img class="hero-img" src="assets/img/bg-img.png" alt="Calm, modern dental treatment room" data-animate="right" data-delay="100" />
       </div>
     </section>
 
+    <section class="section about-intro" data-animate="up" data-once>
+      <div class="container narrow">
+        <h2 class="section-heading">SEPA Dental</h2>
+
+        <p class="lead">
+          Welcome to SEPA Dental, a group of dental clinics offering oral health services across Malaysia, including Kuala Lumpur (TTDI, Mont Kiara), Selangor (Petaling Jaya, Klang, Subang Jaya, Puchong), Seremban, and Johor Bahru. We have redefined the traditional dental experience, blending exceptional care with a spa-like touch.
+        </p>
+
+        <p>
+          Our journey began with a vision to transform the conventional dental experience into a serene oasis, where patients can find solace and relaxation while receiving exceptional dental care. Inspired by the serene ambiance and tranquil atmosphere of luxurious spas, we have crafted a dental clinic that offers a unique fusion of modern dentistry and wellness.
+        </p>
+
+        <p>
+          With a team of highly skilled professional dentists, state-of-the-art technology, and a commitment to personalized care, we invite you to embark on a transformative dental experience unlike any other. Step into our world, where dental care meets tranquility, and let us guide you on a path to a healthier smile and a rejuvenated spirit.
+        </p>
+
+        <div class="about-stars" data-animate="fade" data-delay="120">
+          <div class="star-item">
+            <span class="star-icon">★ ★ ★ ★ ★</span>
+            <p><strong>Result</strong></p>
+          </div>
+
+          <div class="star-item">
+            <span class="star-icon">★ ★ ★ ★ ★</span>
+            <p><strong>Service</strong></p>
+          </div>
+
+          <div class="star-item">
+            <span class="star-icon">★ ★ ★ ★ ★</span>
+            <p><strong>Ambience</strong></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
     <!-- Cards -->
     <section class="section" data-stagger="120">
       <div class="container grid-2">
@@ -245,12 +287,14 @@
       </div>
 
       <nav aria-label="Footer">
-        <h4 class="footer-title">Quicklink</h4>
+        <h4 class="footer-title">Quicklinks</h4>
         <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">What We Offer</a></li>
-          <li><a href="specialty.html">Our Specialty</a></li>
+          <li><a href="specialty.html">Our Specialties</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -298,45 +342,5 @@
   <!-- Main script -->
   <script src="assets/js/main.js" defer></script>
 
-  <!-- Scroll-reveal IntersectionObserver -->
-  <script>
-    (function () {
-      const els = [...document.querySelectorAll('[data-animate], [data-stagger]')];
-      if (!('IntersectionObserver' in window) || !els.length) return;
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const el = entry.target;
-          const once = el.hasAttribute('data-once') || el.getAttribute('data-animate')?.includes('once');
-
-          if (entry.isIntersecting) {
-            const delay = el.getAttribute('data-delay');
-            const dur = el.getAttribute('data-dur');
-            if (delay) el.style.setProperty('--reveal-delay', parseInt(delay, 10) + 'ms');
-            if (dur) el.style.setProperty('--reveal-dur', parseInt(dur, 10) + 'ms');
-
-            const stagger = parseInt(el.getAttribute('data-stagger') || '0', 10);
-            if (stagger && el.children.length) {
-              [...el.children].forEach((child, i) => {
-                child.style.setProperty('--reveal-delay', i * stagger + 'ms');
-                if (!child.hasAttribute('data-animate')) child.setAttribute('data-animate', 'up');
-                child.classList.add('in-view');
-              });
-            }
-
-            el.classList.add('in-view');
-            if (once) io.unobserve(el);
-          } else if (!el.hasAttribute('data-once')) {
-            el.classList.remove('in-view');
-            if (el.hasAttribute('data-stagger')) {
-              [...el.children].forEach((child) => child.classList.remove('in-view'));
-            }
-          }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-
-      els.forEach((el) => io.observe(el));
-    })();
-  </script>
 </body>
 </html>

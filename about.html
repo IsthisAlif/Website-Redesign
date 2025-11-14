@@ -2,113 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <!-- Fonts: Cormorant Garamond + Work Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — SEPA Dental</title>
   <meta name="description" content="Our story and philosophy: spa-like dental care focused on comfort, clarity, and outcomes." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Doctors-only overrides so faces don't get cut off -->
+  <!-- Page-specific (keep faces centered in doctor cards) -->
   <style>
-    .grid-2 {
-      display: grid;
-      gap: var(--s4);
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (max-width:640px){
-      .grid-2 { grid-template-columns: 1fr; }
-    }
-    .doctors .card img {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      height: auto;
-      object-fit: cover;
-      object-position: 50% 18%;
-      border-radius: calc(var(--radius) - 6px);
-      display: block;
-    }
-
-    /* === Scroll-reveal animation utilities === */
-    [data-animate]{
-      --reveal-op: 0;
-      --reveal-x: 0px;
-      --reveal-y: 10px;
-      --reveal-scale: .98;
-      --reveal-rot: 0deg;
-      --reveal-delay: 0ms;
-      --reveal-dur: 600ms;
-      --reveal-ease: cubic-bezier(.22,.75,.24,1);
-
-      opacity: var(--reveal-op);
-      transform:
-        translate3d(var(--reveal-x), var(--reveal-y), 0)
-        scale(var(--reveal-scale))
-        rotate(var(--reveal-rot));
-      will-change: transform, opacity;
-      transition:
-        opacity var(--reveal-dur) var(--reveal-ease) var(--reveal-delay),
-        transform var(--reveal-dur) var(--reveal-ease) var(--reveal-delay);
-    }
-    .in-view[data-animate]{ --reveal-op:1; --reveal-x:0; --reveal-y:0; --reveal-scale:1; --reveal-rot:0; }
-    [data-animate~="fade"] { --reveal-y: 0px; }
-    [data-animate~="up"]   { --reveal-y: 16px; }
-    [data-animate~="down"] { --reveal-y: -16px; }
-    [data-animate~="left"] { --reveal-x: 16px; }
-    [data-animate~="right"]{ --reveal-x: -16px; }
-    [data-animate~="zoom"] { --reveal-scale: .94; }
-    [data-animate~="spin"] { --reveal-rot: -3deg; }
-    [data-stagger] > * { transition-delay: var(--reveal-delay, 0ms); }
-    @media (prefers-reduced-motion: reduce){
-      [data-animate]{ transition: none !important; transform: none !important; opacity: 1 !important; }
+    .doctors .card img{
+      width:100%;
+      aspect-ratio:3/4;
+      height:auto;
+      object-fit:cover;
+      object-position:50% 18%;
+      border-radius:calc(var(--radius) - 6px);
+      display:block;
     }
   </style>
 </head>
+<body>
 
-<div class="marquee-container">
-  <div class="marquee">
-    <div class="marquee__group">
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-    </div>
-
-    <div class="marquee__group marquee__group--b">
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
-      <span>Best Dental Clinics in Malaysia •</span>
+  <!-- Marquee -->
+  <div class="marquee-container" role="region" aria-label="Promotional ticker">
+    <div class="marquee">
+      <div class="marquee__group">
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+      </div>
+      <div class="marquee__group marquee__group--b" aria-hidden="true">
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+        <span>Best Dental Clinics in Malaysia •</span>
+      </div>
     </div>
   </div>
-</div>
 
+  <!-- Header -->
   <header class="site-header fixed-header" data-animate="fade" data-once>
     <div class="header-container" data-stagger="80">
-      <a class="brand" href="index.html" data-animate="up">
-        <img src="assets/img/main_logo.png" alt="SEPA Dental logo" data-animate="fade">
+      <a class="brand" href="index.html">
+        <img src="assets/img/main_logo.png" alt="SEPA Dental logo">
       </a>
 
-      <nav id="nav" class="site-nav" aria-label="Primary" data-animate="up">
+      <nav id="nav" class="site-nav" aria-label="Primary">
         <ul>
-          <li data-animate="up"><a href="index.html">Home</a></li>
-          <li data-animate="up" data-delay="40"><a href="about.html">About</a></li>
-          <li data-animate="up" data-delay="80"><a href="services.html">What We Offer</a></li>
-          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialty</a></li>
-          <li data-animate="up" data-delay="160"><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">About Us</a></li>
+          <li><a href="services.html">What We Offer</a></li>
+          <li><a href="specialty.html">Our Specialties</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
-      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-animate="zoom" data-delay="240">☰</button>
+      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact Us</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
 
   <main id="content">
+    <!-- Hero -->
     <section class="hero" data-stagger="120" data-once>
       <div class="container grid">
         <!-- Left: Video -->
@@ -129,8 +93,8 @@
         <div>
           <h1 data-animate="up">About SEPA Dental</h1>
           <p class="lead" data-animate="fade" data-delay="80">
-            With a focus on personalized care, we take the time to listen to your concerns, answer your questions, 
-            and create tailored treatment plans that address your unique needs. We combine state-of-the-art 
+            With a focus on personalized care, we take the time to listen to your concerns, answer your questions,
+            and create tailored treatment plans that address your unique needs. We combine state-of-the-art
             technology with a gentle touch to deliver effective and pain-free dental procedures.
           </p>
         </div>
@@ -141,31 +105,42 @@
       <div class="container grid">
         <div>
           <h2 class="section-heading" data-animate="up">Our Philosophy</h2>
-          <p data-animate="fade" data-delay="60">Great dentistry is both science and care. From your first consult to your follow-up, we explain options in plain language, use modern imaging for accuracy, and prioritise comfort every step of the way.</p>
+          <p data-animate="fade" data-delay="60">
+            Great dentistry is both science and care. From your first consult to your follow-up, we explain options
+            in plain language, use modern imaging for accuracy, and prioritise comfort every step of the way.
+          </p>
           <ul class="bullets">
             <li data-animate="up">Comfort-first spaces and gentle techniques</li>
             <li data-animate="up" data-delay="40">Transparent plans with costs and timelines</li>
             <li data-animate="up" data-delay="80">Preventive care that fits real life</li>
           </ul>
         </div>
-        <img src="assets/img/img-about.jpg" alt="Soothing dental treatment room with warm lighting" loading="lazy" data-animate="right">
+
+        <!-- Uses .popup-image for lightbox -->
+        <img
+          class="popup-image"
+          src="assets/img/img-about.jpg"
+          alt="Soothing dental treatment room with warm lighting"
+          loading="lazy"
+          data-animate="right"
+          style="cursor:pointer;">
       </div>
     </section>
-
-    <!-- OUR DOCTORS -->
+    
+    <!-- Our Doctors -->
     <section class="section doctors" aria-labelledby="doctors-heading" data-stagger="120">
-      <div class="container narrow" style="text-align: center;">
+      <div class="container narrow" style="text-align:center;">
         <h2 id="doctors-heading" class="section-heading" data-animate="up">Our Doctors</h2>
         <img
           src="assets/img/img-team.jpg"
           alt="Group photo of SEPA Dental doctors"
-          style="max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-2); margin-top: var(--s3);"
+          style="max-width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow-2);margin-top:var(--s3);"
           loading="lazy"
           data-animate="fade" data-delay="80">
       </div>
 
       <div class="container">
-        <div class="grid-2" style="margin-top: var(--s4);" data-stagger="120">
+        <div class="grid-2" style="margin-top:var(--s4);" data-stagger="120">
           <article class="card" data-doc="allen-teh" data-animate="up">
             <img src="assets/img/team-1.jpg" alt="Dr Allen Teh" loading="lazy" data-animate="fade">
             <h3 data-animate="up" data-delay="40">Dr Allen Teh</h3>
@@ -228,13 +203,13 @@
         </div>
       </div>
     </section>
-    <!-- /OUR DOCTORS -->
 
     <!-- Doctor modal root (populated by JS) -->
     <div id="doctor-modal-root" aria-live="polite"></div>
   </main>
 
-<footer class="site-footer">
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-brand">
         <img src="assets/img/main_logo.png" alt="SEPA Dental logo">
@@ -242,12 +217,14 @@
       </div>
 
       <nav aria-label="Footer">
-        <h4 class="footer-title">Quicklink</h4>
+        <h4 class="footer-title">Quicklinks</h4>
         <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">What We Offer</a></li>
-          <li><a href="specialty.html">Our Specialty</a></li>
+          <li><a href="specialty.html">Our Specialties</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -269,75 +246,36 @@
         </select>
         <button class="btn" type="submit">Request a slot</button>
       </form>
-            <!-- Social Links + Phone -->
-      <div class="footer-social">
-        <a href="https://www.instagram.com/sepadental?igsh=eTdpNzhodzlkbWc1" target="_blank" aria-label="Instagram">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24">
+
+      <div class="footer-social" role="list" aria-label="Social links">
+        <a role="listitem" href="https://www.instagram.com/sepadental?igsh=eTdpNzhodzlkbWc1" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm4.8-3.8c-.5 0-.8.3-.8.8s.3.8.8.8.8-.3.8-.8-.3-.8-.8-.8z"/>
           </svg>
         </a>
 
-        <a href="https://www.facebook.com/share/1aTQjwnER7/" target="_blank" aria-label="Facebook">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24">
+        <a role="listitem" href="https://www.facebook.com/share/1aTQjwnER7/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.4 3h-2.9v7A10 10 0 0 0 22 12"/>
           </svg>
         </a>
 
-        <a href="https://www.tiktok.com/@sepadental?_r=1&_t=ZS-91ESY5YuGdW" target="_blank" aria-label="TikTok">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24">
+        <a role="listitem" href="https://www.tiktok.com/@sepadental?_r=1&_t=ZS-91ESY5YuGdW" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 8.6a5.4 5.4 0 0 1-3.3-1.1A5.6 5.6 0 0 1 15.1 5V2h-3.2v13.1a2.4 2.4 0 1 1-2.4-2.4c.2 0 .4 0 .6.1V9.5a5.6 5.6 0 1 0 4.5 9V9.9a8.7 8.7 0 0 0 5.3 1.7V8.6z"/>
           </svg>
         </a>
-
       </div>
     </div>
   </footer>
 
+  <!-- Image lightbox (used by .popup-image) -->
+  <div id="image-modal" class="image-modal" aria-hidden="true">
+    <img id="image-modal-img" class="image-modal-content" alt="">
+    <button class="image-modal-close" aria-label="Close image">×</button>
+  </div>
+
+  <!-- Main script -->
   <script src="assets/js/main.js" defer></script>
-
-  <!-- === Scroll-reveal IntersectionObserver === -->
-  <script>
-  (function(){
-    const els = [...document.querySelectorAll('[data-animate], [data-stagger]')];
-    if (!('IntersectionObserver' in window) || !els.length) return;
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const el = entry.target;
-        const once = el.hasAttribute('data-once') || el.getAttribute('data-animate')?.includes('once');
-
-        if (entry.isIntersecting){
-          const delay = el.getAttribute('data-delay');
-          const dur   = el.getAttribute('data-dur');
-          if (delay) el.style.setProperty('--reveal-delay', parseInt(delay,10) + 'ms');
-          if (dur)   el.style.setProperty('--reveal-dur', parseInt(dur,10) + 'ms');
-
-          const stagger = parseInt(el.getAttribute('data-stagger') || '0', 10);
-          if (stagger && el.children.length){
-            [...el.children].forEach((child, i) => {
-              child.style.setProperty('--reveal-delay', (i * stagger) + 'ms');
-              if (!child.hasAttribute('data-animate')){
-                child.setAttribute('data-animate', 'up');
-              }
-              child.classList.add('in-view');
-            });
-          }
-
-          el.classList.add('in-view');
-          if (once) io.unobserve(el);
-        } else {
-          if (!el.hasAttribute('data-once')){
-            el.classList.remove('in-view');
-            if (el.hasAttribute('data-stagger')){
-              [...el.children].forEach(child => child.classList.remove('in-view'));
-            }
-          }
-        }
-      });
-    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-
-    els.forEach(el => io.observe(el));
-  })();
-  </script>
 </body>
 </html>

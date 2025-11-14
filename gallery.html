@@ -11,40 +11,6 @@
   <meta name="description" content="Before-and-after smiles and a peek at our calming spaces." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <style>
-    [data-animate]{
-      --reveal-op: 0;
-      --reveal-x: 0px;
-      --reveal-y: 10px;
-      --reveal-scale: .98;
-      --reveal-rot: 0deg;
-      --reveal-delay: 0ms;
-      --reveal-dur: 600ms;
-      --reveal-ease: cubic-bezier(.22,.75,.24,1);
-
-      opacity: var(--reveal-op);
-      transform:
-        translate3d(var(--reveal-x), var(--reveal-y), 0)
-        scale(var(--reveal-scale))
-        rotate(var(--reveal-rot));
-      will-change: transform, opacity;
-      transition:
-        opacity var(--reveal-dur) var(--reveal-ease) var(--reveal-delay),
-        transform var(--reveal-dur) var(--reveal-ease) var(--reveal-delay);
-    }
-    .in-view[data-animate]{ --reveal-op:1; --reveal-x:0; --reveal-y:0; --reveal-scale:1; --reveal-rot:0; }
-    [data-animate~="fade"] { --reveal-y: 0px; }
-    [data-animate~="up"]   { --reveal-y: 16px; }
-    [data-animate~="down"] { --reveal-y: -16px; }
-    [data-animate~="left"] { --reveal-x: 16px; }
-    [data-animate~="right"]{ --reveal-x: -16px; }
-    [data-animate~="zoom"] { --reveal-scale: .94; }
-    [data-animate~="spin"] { --reveal-rot: -3deg; }
-    [data-stagger] > * { transition-delay: var(--reveal-delay, 0ms); }
-    @media (prefers-reduced-motion: reduce){
-      [data-animate]{ transition: none !important; transform: none !important; opacity: 1 !important; }
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -78,14 +44,14 @@
       <nav id="nav" class="site-nav" aria-label="Primary" data-animate="up">
         <ul>
           <li data-animate="up"><a href="index.html">Home</a></li>
-          <li data-animate="up" data-delay="40"><a href="about.html">About</a></li>
+          <li data-animate="up" data-delay="40"><a href="about.html">About Us</a></li>
           <li data-animate="up" data-delay="80"><a href="services.html">What We Offer</a></li>
-          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialty</a></li>
+          <li data-animate="up" data-delay="120"><a href="specialty.html">Our Specialties</a></li>
           <li data-animate="up" data-delay="160"><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
-      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact</a>
+      <a href="contact.html" class="btn nav-contact" data-animate="zoom" data-delay="200">Contact Us</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-animate="zoom" data-delay="240">☰</button>
     </div>
   </header>
@@ -96,7 +62,7 @@
         <div>
           <h1 data-animate="up">Gallery</h1>
           <p class="lead" data-animate="fade" data-delay="80">
-            The Smile Gallery showcases before-and-after results from a variety of SEPA Dental treatments, including whitening, aligners, and veneers. These examples demonstrate expected outcomes under professional supervision — individual results may vary.
+            The Smile Gallery showcases before-and-after results from a variety of SEPA Dental treatments, including whitening, aligners, and veneers. These examples demonstrate expected outcomes under professional supervision individual results may vary.
           </p>
         </div>
         <img class="hero-img" src="assets/img/img_dental_veneers_1.jpg" alt="gallery intro" data-animate="right" data-delay="100">
@@ -109,18 +75,38 @@
       </div>
 
       <div class="container grid-2" data-stagger="100">
+
         <div class="card" data-animate="up">
-          <img src="assets/img/gallery-1.jpg" alt="Before" loading="lazy" data-animate="fade">
+          <div class="gallery-item">
+            <img class="popup-image" src="assets/img/gallery-1.jpg" alt="Before" loading="lazy" data-animate="fade">
+            <p style="color:#0a1f2a;" class="gallery-caption">Before</p>
+          </div>
         </div>
+
         <div class="card" data-animate="up" data-delay="50">
-          <img src="assets/img/gallery-2.jpg" alt="After" loading="lazy" data-animate="fade">
+          <div class="gallery-item">
+            <img class="popup-image" src="assets/img/gallery-2.jpg" alt="After" loading="lazy" data-animate="fade">
+            <p style="color:#0a1f2a;" class="gallery-caption">After</p>
+          </div>
         </div>
+
         <div class="card" data-animate="up" data-delay="100">
-          <img src="assets/img/gallery-3.jpg" alt="Before and after 1" loading="lazy" data-animate="fade">
+          <div class="gallery-item">
+            <img class="popup-image" src="assets/img/gallery-3.jpg" alt="Before and after 1" loading="lazy" data-animate="fade">
+            <p style="color:#0a1f2a;" class="gallery-caption">Before and After</p>
+          </div>
         </div>
+
         <div class="card" data-animate="up" data-delay="150">
-          <img src="assets/img/gallery-4.jpg" alt="Before and after 2" loading="lazy" data-animate="fade">
+          <div class="gallery-item">
+            <img class="popup-image" src="assets/img/gallery-4.jpg" alt="Before and after 2" loading="lazy" data-animate="fade">
+            <p style="color:#0a1f2a;" class="gallery-caption">Before and After</p>
+          </div>
         </div>
+
+      </div>
+
+
       </div>
     </section>
   </main>
@@ -133,12 +119,14 @@
       </div>
 
       <nav aria-label="Footer">
-        <h4 class="footer-title">Quicklink</h4>
+        <h4 class="footer-title">Quicklinks</h4>
         <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">What We Offer</a></li>
-          <li><a href="specialty.html">Our Specialty</a></li>
+          <li><a href="specialty.html">Our Specialties</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -186,49 +174,10 @@
 
   <script src="assets/js/main.js" defer></script>
 
-  <!-- === Scroll-reveal IntersectionObserver (inline; move to main.js if you like) === -->
-  <script>
-  (function(){
-    const els = [...document.querySelectorAll('[data-animate], [data-stagger]')];
-    if (!('IntersectionObserver' in window) || !els.length) return;
+  <div id="image-modal" class="image-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="image-modal-close" aria-label="Close image preview" type="button">&times;</button>
+    <img class="image-modal-content" id="image-modal-img" alt="">
+  </div>
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const el = entry.target;
-        const once = el.hasAttribute('data-once') || el.getAttribute('data-animate')?.includes('once');
-
-        if (entry.isIntersecting){
-          const delay = el.getAttribute('data-delay');
-          const dur   = el.getAttribute('data-dur');
-          if (delay) el.style.setProperty('--reveal-delay', parseInt(delay,10) + 'ms');
-          if (dur)   el.style.setProperty('--reveal-dur', parseInt(dur,10) + 'ms');
-
-          const stagger = parseInt(el.getAttribute('data-stagger') || '0', 10);
-          if (stagger && el.children.length){
-            [...el.children].forEach((child, i) => {
-              child.style.setProperty('--reveal-delay', (i * stagger) + 'ms');
-              if (!child.hasAttribute('data-animate')){
-                child.setAttribute('data-animate', 'up');
-              }
-              child.classList.add('in-view');
-            });
-          }
-
-          el.classList.add('in-view');
-          if (once) io.unobserve(el);
-        } else {
-          if (!el.hasAttribute('data-once')){
-            el.classList.remove('in-view');
-            if (el.hasAttribute('data-stagger')){
-              [...el.children].forEach(child => child.classList.remove('in-view'));
-            }
-          }
-        }
-      });
-    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-
-    els.forEach(el => io.observe(el));
-  })();
-  </script>
 </body>
 </html>
