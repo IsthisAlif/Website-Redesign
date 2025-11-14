@@ -139,27 +139,6 @@ document.querySelectorAll('form').forEach(form => {
   });
 });
 
-const mapFrame = document.getElementById('branch-map');
-const mapSelect = document.getElementById('f-branch');
-
-const MAPS = {
-  'TTDI': 'https://www.google.com/maps/embed?pb=!1m18!1m12!...TTDI...',
-  'Mont Kiara / Publika': 'https://www.google.com/maps/embed?pb=!1m18!1m12!...Publika...',
-  'Petaling Jaya': 'https://www.google.com/maps/embed?pb=!1m18!...PJ...',
-  'Klang': 'https://www.google.com/maps/embed?pb=!1m18!...Klang...',
-  'Subang Jaya': 'https://www.google.com/maps/embed?pb=!1m18!...Subang...',
-  'Puchong': 'https://www.google.com/maps/embed?pb=!1m18!...Puchong...',
-  'Seremban': 'https://www.google.com/maps/embed?pb=!1m18!...Seremban...',
-  'Johor Bahru': 'https://www.google.com/maps/embed?pb=!1m18!...JB...'
-};
-
-if (mapFrame && mapSelect) {
-  mapSelect.addEventListener('change', () => {
-    const url = MAPS[mapSelect.value];
-    if (url) mapFrame.src = url;
-  });
-}
-
 /* --- Header shrink effect on scroll --- */
 window.addEventListener('scroll', () => {
   const header = document.querySelector('.fixed-header');
@@ -456,3 +435,78 @@ window.addEventListener('scroll', () => {
   go(0, false);
   play();
 })();
+
+/* === Simple Image Popup === */
+(function() {
+  const img = document.querySelector('.popup-image');
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('image-modal-img');
+  const closeBtn = document.querySelector('.image-modal-close');
+
+  if (!img || !modal) return;
+
+  img.addEventListener('click', () => {
+    modal.classList.add('show');
+    modalImg.src = img.src;
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('show');
+  });
+})();
+
+/* === Generic Image Lightbox for all .popup-image === */
+(function () {
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('image-modal-img');
+  const closeBtn = document.querySelector('.image-modal-close');
+
+  // If the page doesn't have a modal container, skip (page-safe)
+  if (!modal || !modalImg || !closeBtn) return;
+
+  // Open when any .popup-image is clicked
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.popup-image');
+    if (!img) return;
+
+    modalImg.src = img.currentSrc || img.src;
+    modalImg.alt = img.alt || '';
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    // focus the close button for accessibility
+    closeBtn.focus();
+  });
+
+  // Close interactions
+  const close = () => {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImg.src = '';
+    modalImg.alt = '';
+  };
+
+  closeBtn.addEventListener('click', close);
+
+  // Click on backdrop closes (but not when clicking on image)
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) close();
+  });
+
+  // Esc to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) close();
+  });
+})();
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
